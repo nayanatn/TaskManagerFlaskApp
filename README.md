@@ -36,7 +36,7 @@ task_manager/
 │   │   ├── layout/    # Layout templates
 │   │   │   ├── header.html  # Header section
 │   │   │   ├── footer.html  # Footer section
-│   │   │   ├── base.html    # Base template (extends header/footer)
+│   │   ├── base.html    # Base template (extends header/footer)
 │   │   ├── home.html     # Homepage
 │   │   ├── dashboard.html  # Dashboard (after login)
 │   │   ├── login.html      # Login page
@@ -46,7 +46,7 @@ task_manager/
 │   │   │   ├── 500.html    # 500 Internal Server Error
 │   │   ├── tasks/          # Task-related templates
 │   │   │   ├── task_list.html  # View all tasks
-│   │   │   ├── task_view.html  # View single task details
+│   │   │   ├── task_create.html  # Create a new task
 │   │   │   ├── task_edit.html  # Edit task page
 │── run.py             # Entry point to run the Flask app
 │── requirements.txt   # List of dependencies
