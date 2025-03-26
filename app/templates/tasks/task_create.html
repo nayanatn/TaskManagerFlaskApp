@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-4">
+  <h2>Create Task</h2>
+
+  <div id="alert-container"></div>
+  <!-- Alert will appear here -->
+
+  <form id="create-task-form">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        name="description"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Create Task</button>
+  </form>
+</div>
+
+<script>
+  document
+    .getElementById("create-task-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch("{{ url_for('tasks.create_task') }}", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          if (response.ok) {
+            alert("Task created successfully!", "success");
+            setTimeout(
+              () => (window.location.href = "{{ url_for('tasks.get_tasks') }}"),
+              1000
+            );
+          } else {
+            alert("Error creating task. Please try again.", "danger");
+          }
+        })
+        .catch(() => alert("Error processing request.", "danger"));
+    });
+</script>
+{% endblock %}

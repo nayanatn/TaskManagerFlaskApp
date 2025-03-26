@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block title %}Home - Task Manager{% endblock %} {%
+block content %}
+<h2>Welcome to Task Manager</h2>
+<p>Manage your tasks efficiently and easily.</p>
+<a class="btn btn-primary" href="{{ url_for('global.dashboard') }}"
+  >Go to Dashboard</a
+>
+{% endblock %}

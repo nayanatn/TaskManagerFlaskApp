@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block title %}Dashboard - Task Manager{% endblock
+%} {% block content %}
+<h2>Your Dashboard</h2>
+<p>View and manage your tasks here.</p>
+<a class="btn btn-success" href="{{ url_for('tasks.get_tasks') }}"
+  >View Tasks</a
+>
+{% endblock %}

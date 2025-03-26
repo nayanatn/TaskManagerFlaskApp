@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+<div class="container mt-5">
+  <h2 class="text-center">Sign Up</h2>
+  <div class="card p-4 shadow">
+    <form id="signupForm">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+    </form>
+    <div class="mt-3 text-center">
+      <small
+        >Already have an account?
+        <a href="{{ url_for('users.login') }}">Login</a></small
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  document
+    .getElementById("signupForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      fetch("{{ url_for('users.signup') }}", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            return response.json().then((err) => {
+              throw new Error(err.error);
+            });
+          }
+          return response.json();
+        })
+        .then((data) => {
+          alert(data.message);
+          window.location.href = "{{ url_for('users.login') }}";
+        })
+        .catch((error) => {
+          alert(error.message); // Show error messages from backend
+          console.error("Signup error:", error);
+        });
+    });
+</script>
+
+{% endblock %}

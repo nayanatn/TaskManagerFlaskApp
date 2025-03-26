@@ -1,0 +1,40 @@
+# Virtual environment  
+.venv/  
+
+# Byte-compiled / optimized / DLL files  
+__pycache__/  
+*.pyc  
+*.pyo  
+*.pyd  
+
+# Environment variables  
+.env  
+*.env  
+
+# Logs  
+logs/  
+*.log  
+nohup.out  
+
+# Database  
+*.sqlite3  
+instance/  
+
+# IDE-specific files  
+.vscode/  
+.idea/  
+*.swp  
+
+# Dependencies  
+*.egg-info/  
+dist/  
+build/  
+pip-log.txt  
+
+# Flask cache  
+.cache/  
+
+# Pytest and coverage reports  
+.coverage  
+htmlcov/  
+.tox/ 

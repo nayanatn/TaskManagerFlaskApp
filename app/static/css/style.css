@@ -1,0 +1,4 @@
+/* Ensures main content expands and pushes the footer down */
+main {
+  flex-grow: 1;
+}
